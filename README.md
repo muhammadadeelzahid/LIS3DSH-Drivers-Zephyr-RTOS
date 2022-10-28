@@ -1,74 +1,41 @@
-# Zephyr Example Application
+# LIS3DSH Drivers for Zephyr RTOS 
 
-This repository contains a Zephyr example application. The main purpose of this
-repository is to serve as a reference on how to structure Zephyr based
-applications. Some of the features demonstrated in this example are:
 
-- Basic [Zephyr application][app_dev] skeleton
-- [Zephyr workspace applications][workspace_app]
-- [West T2 topology][west_t2]
-- [Custom boards][board_porting]
-- Custom [devicetree bindings][bindings]
-- Out-of-tree [drivers][drivers]
-- Example CI configuration (using Github Actions)
-- Custom [west extension][west_ext]
 
-This repository is versioned together with the [Zephyr main tree][zephyr]. This
-means that every time that Zephyr is tagged, this repository is tagged as well
-with the same version number, and the [manifest](west.yml) entry for `zephyr`
-will point to the corresponding Zephyr tag. For example, `example-application`
-v2.6.0 will point to Zephyr v2.6.0. Note that the `main` branch will always
-point to the development branch of Zephyr, also `main`.
+This repository contains drivers setup for LIS3DSH sensor based on Zephyr's official example application. The main purpose of this
+repository is to serve as a reference on how to setup the structure of your files for Out-of-Tree Drivers for a sensor, in our case we demonstrate for LIS3DSH sensor. More information about Zephyr SPI interfacing can be found at [Oxeltech's blog on ](https://www.oxeltech.de/en/blogs/using-zephyr-os-for-interfacing-an-imu-sensor-with-nrf52-over-spi)
+  
+  
+  
+ ## Getting Started
 
-[app_dev]: https://docs.zephyrproject.org/latest/develop/application/index.html
-[workspace_app]: https://docs.zephyrproject.org/latest/develop/application/index.html#zephyr-workspace-app
-[west_t2]: https://docs.zephyrproject.org/latest/develop/west/workspaces.html#west-t2
-[board_porting]: https://docs.zephyrproject.org/latest/guides/porting/board_porting.html
-[bindings]: https://docs.zephyrproject.org/latest/guides/dts/bindings.html
-[drivers]: https://docs.zephyrproject.org/latest/reference/drivers/index.html
-[zephyr]: https://github.com/zephyrproject-rtos/zephyr
-[west_ext]: https://docs.zephyrproject.org/latest/develop/west/extensions.html
 
-## Getting Started
 
 Before getting started, make sure you have a proper Zephyr development
 environment. You can follow the official
-[Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
+[Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html). First step, you should clone the example-application from [Example-Application](https://github.com/zephyrproject-rtos/example-application). Follow the instructions on the example-application page to initialise a workspace. After this  you can follow detailed instructions and guidelines on our blog [link](https://www.oxeltech.de/en/blogs) on how to setup your config and driver files. You can download individual files and folders from this repository and replace them with the default ones inside the example-application.
 
-### Initialization
 
-The first step is to initialize the workspace folder (``my-workspace``) where
-the ``example-application`` and all Zephyr modules will be cloned. You can do
-that by running:
 
-```shell
-# initialize my-workspace for the example-application (main branch)
-west init -m https://github.com/zephyrproject-rtos/example-application --mr main my-workspace
-# update Zephyr modules
-cd my-workspace
-west update
-```
+## Steps
+
+1.	Add a folder called lis3dsh inside of example-application/drivers/sensor/
+2.	Clone and add the lis3dsh.c and lis3dsh.h files inside the lis3dsh folder
+3.	Clone and add CMakeLists.txt and Kconfig from drivers/sensor/lis3dsh/CMakeLists.txt and drivers/sensor/lis3dsh/Kconfig files to the example-application folder      respectively
+4.	Clone and add the st,lis3dsh.yaml file to the dts/bindings/sensor directory in the example-application project
+5.	Clone and add the nrf52dk_nrf52832.overlay file to example-application/app/boards directory. 
+6.	Add samples/sensor/lis3dsh/prj.conf from this repository to example-application/app/
+7.	Clone and replace the main.c source code to the example-application/app/src folder.
+
+
 
 ### Build & Run
 
-The application can be built by running:
+The application can be built and flashed by running:
 
 ```shell
-west build -b $BOARD app
+west build -b nrf52dk_nrf52832 app
 ```
-
-where `$BOARD` is the target board. The `custom_plank` board found in this
-repository can be used. Note that Zephyr sample boards may be used if an
-appropriate overlay is provided (see `app/boards`).
-
-A sample debug configuration is also provided. You can apply it by running:
-
-```shell
-west build -b $BOARD app -- -DOVERLAY_CONFIG=debug.conf
-```
-
-Note that you may also use it together with `rtt.conf` if using Segger RTT. Once
-you have built the application you can flash it by running:
 
 ```shell
 west flash
