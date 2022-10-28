@@ -31,7 +31,7 @@ environment. You can follow the official
 
 ### Build & Run
 
-The application can be built and flashed by running:
+The application can be built and flashed by running the following commands within the example-application folder:
 
 ```code
 west build -b nrf52dk_nrf52832 app
