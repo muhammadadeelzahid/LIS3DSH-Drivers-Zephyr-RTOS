@@ -1,0 +1,7 @@
+config LIS3DSH
+	bool "LIS3DSH Three Axis Accelerometer"
+	default y
+	depends on DT_HAS_ST_LIS3DSH_ENABLED
+	select SPI 
+	help
+	  Enable LIS3DSH sensor

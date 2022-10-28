@@ -1,0 +1,21 @@
+&pinctrl {
+    spi1_sck_pa5: spi1_sck_pa5 {
+        pinmux = < 0x505 >;
+        bias-pull-up;
+    };
+
+    spi1_mosi_pd7: spi1_mosi_pd7 {
+        pinmux = < 0x3705 >;
+        bias-pull-down;
+    };
+
+    spi1_miso_pa6: spi1_miso_pa6 {
+        pinmux = < 0x605 >;
+        bias-pull-down;
+    };
+
+};
+
+&spi1 {
+    status = "okay";
+};

@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    STMicroelectronics LIS2DSH 3-axis accelerometer accessed through SPI bus
+
+include: spi-device.yaml
+compatible: "st,lis3dsh"
+on-bus: spi
