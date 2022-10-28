@@ -33,10 +33,10 @@ environment. You can follow the official
 
 The application can be built and flashed by running:
 
-```shell
+```code
 west build -b nrf52dk_nrf52832 app
 ```
 
-```shell
+```code
 west flash
 ```
