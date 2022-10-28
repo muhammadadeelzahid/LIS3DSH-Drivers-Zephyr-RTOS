@@ -25,10 +25,4 @@ jobs:
       - name: Build firmware
         working-directory: example-application
         run: |
-          west build -b custom_plank app
-
-      - name: Archive firmware
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: example-application/build/zephyr/zephyr.*
+          west build -b nrf52dk_nrf52832 app
