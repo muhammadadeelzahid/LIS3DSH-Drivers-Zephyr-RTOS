@@ -19,13 +19,11 @@ environment. You can follow the official
 
 ## Steps
 
-1.	Add a folder called lis3dsh inside of example-application/drivers/sensor/
-2.	Clone and add the lis3dsh.c and lis3dsh.h files inside the lis3dsh folder
-3.	Clone and add CMakeLists.txt and Kconfig from drivers/sensor/lis3dsh/CMakeLists.txt and drivers/sensor/lis3dsh/Kconfig files to the example-application folder      respectively
-4.	Clone and add the st,lis3dsh.yaml file to the dts/bindings/sensor directory in the example-application project
-5.	Clone and add the nrf52dk_nrf52832.overlay file to example-application/app/boards directory. 
-6.	Add samples/sensor/lis3dsh/prj.conf from this repository to example-application/app/
-7.	Clone and replace the main.c source code to the example-application/app/src folder.
+1.	Copy and replace this repository's "drivers" folder inside "example-application/."
+2.	Clone and add the st,lis3dsh.yaml file to the dts/bindings/sensor directory in the example-application project
+3.	Clone and add the nrf52dk_nrf52832.overlay file to example-application/app/boards directory. 
+4.	Add samples/sensor/lis3dsh/prj.conf from this repository to example-application/app/
+5.	Clone and replace the main.c source code to the example-application/app/src folder.
 
 
 
