@@ -3,7 +3,7 @@
 
 
 This repository contains drivers setup for LIS3DSH sensor based on Zephyr's official example application. The main purpose of this
-repository is to serve as a reference on how to setup the structure of your files for Out-of-Tree Drivers for a sensor, in our case we demonstrate for LIS3DSH sensor over SPI interface. More information about Zephyr SPI interfacing can be found at [Oxeltech's blog](https://www.oxeltech.de/en/blogs/using-zephyr-os-for-interfacing-an-imu-sensor-with-nrf52-over-spi)
+repository is to serve as a reference on how to setup the structure of your files for Out-of-Tree Drivers for a sensor, in our case we demonstrate for LIS3DSH sensor over SPI interface. More information about Zephyr SPI interfacing can be found at [our blog post](https://www.oxeltech.de/en/blogs/using-zephyr-os-for-interfacing-an-imu-sensor-with-nrf52-over-spi)
   
   
   
